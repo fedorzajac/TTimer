@@ -13,6 +13,38 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize bt0_5,bt15,bt1_5,bt3,lab,bar2;
+
+int cas = 0,i=0;
+
+- (IBAction)trigger:(id)sender{
+    i++;
+    if(i >= cas)[timer invalidate];
+    [lab setIntegerValue:i];
+    [bar2 setDoubleValue:(100*i/cas)];
+}
+
+- (IBAction)patnast:(id)sender{
+    cas = 15*60;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(trigger:) userInfo:nil repeats:YES];
+}
+- (IBAction)tri:(id)sender{
+    cas = 3*60;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(trigger:) userInfo:nil repeats:YES];
+}
+- (IBAction)jadnapat:(id)sender{
+    cas = 90;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(trigger:) userInfo:nil repeats:YES];
+}
+- (IBAction)tridsat:(id)sender{
+    cas = 30;
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(trigger:) userInfo:nil repeats:YES];
+}
+
+
+
+
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
